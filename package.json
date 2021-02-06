@@ -1,0 +1,27 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Webpack configuration for Vanilla JS projects ",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "build:dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonEsteban/Webpack-Boilerplate.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Jhon Esteban Herrera <estebanhz9919@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JhonEsteban/Webpack-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/JhonEsteban/Webpack-Boilerplate#readme",
+  "devDependencies": {
+    "webpack": "^5.21.1",
+    "webpack-cli": "^4.5.0"
+  }
+}
