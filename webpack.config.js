@@ -1,4 +1,5 @@
 const path = require('path');
+const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
@@ -9,6 +10,14 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve( __dirname, 'dist' ),
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+    historyApiFallback: true,
+    compress: true,
+    hot: true,
+    open: true,
+    port: 8080,
   },
   module: {
     rules: [
@@ -55,6 +64,7 @@ module.exports = {
           to: 'assets/images/[name].[hash].[ext]'
         }
       ]
-    })
+    }),
+    new Webpack.HotModuleReplacementPlugin(),
   ]
 }
