@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -8,7 +9,6 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve( __dirname, 'dist' ),
-    publicPath: ''
   },
   module: {
     rules: [
@@ -22,7 +22,20 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [ 
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './'
+            }
+          },
+          'css-loader',
+          'sass-loader'
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|svg|gif)$/i,
+        use: ['file-loader?name=assets/images/[name].[hash].[ext]'],
       },
     ]
   },
@@ -35,5 +48,13 @@ module.exports = {
       filename: '[name].css',
       ignoreOrder: false
     }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'src/assets/images',
+          to: 'assets/images/[name].[hash].[ext]'
+        }
+      ]
+    })
   ]
 }
