@@ -53,12 +53,16 @@ module.exports = {
         test: /\.(png|jpe?g|svg|gif)$/i,
         use: ['file-loader?name=assets/images/[name].[hash].[ext]'],
       },
+      {
+        test: /\.(woff|ttf|eot)$/i,
+        use: ['file-loader?name=assets/fonts/[name].[ext]'],
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack Boilerplate',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
