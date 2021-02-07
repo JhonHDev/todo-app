@@ -4,9 +4,9 @@
   "description": "Webpack configuration for Vanilla JS projects ",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "build:dev": "webpack --mode development",
-    "start": "webpack serve --mode development"
+    "build": "webpack --config config/webpack.prod.js",
+    "build:dev": "webpack --config config/webpack.dev.js",
+    "start": "webpack serve --config config/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     "sass-loader": "^11.0.0",
     "webpack": "^5.21.1",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13"
