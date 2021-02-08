@@ -2,7 +2,7 @@ const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -64,5 +64,6 @@ module.exports = {
       ]
     }),
     new Webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
   ]
 }
