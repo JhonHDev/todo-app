@@ -6,7 +6,7 @@ module.exports = merge( commonConfig, {
   mode: 'development',
   devtool: false,
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[hash].js',
     path: path.resolve( __dirname, '../dist' ),
   },
   devServer: {

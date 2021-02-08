@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|svg|gif)$/i,
-        use: ['file-loader?name=assets/images/[name].[hash].[ext]'],
+        use: ['file-loader?name=assets/images/[name].[contenthash].[ext]'],
       },
       {
         test: /\.(woff|ttf|eot)$/i,
@@ -52,14 +52,14 @@ module.exports = {
       template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].[contenthash].css',
       ignoreOrder: false
     }),
     new CopyPlugin({
       patterns: [
         {
           from: 'src/assets/images',
-          to: 'assets/images/[name].[hash].[ext]'
+          to: 'assets/images/[name].[contenthash].[ext]'
         }
       ]
     }),
