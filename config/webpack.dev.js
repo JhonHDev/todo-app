@@ -1,13 +1,13 @@
 const path = require('path');
-const commonConfig = require('./webpack.common');
 const { merge } = require('webpack-merge');
+const commonConfig = require('./webpack.common');
 
-module.exports = merge( commonConfig, {
+module.exports = merge(commonConfig, {
   mode: 'development',
   devtool: false,
   output: {
     filename: '[name].[hash].js',
-    path: path.resolve( __dirname, '../dist' ),
+    path: path.resolve(__dirname, '../dist'),
   },
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),

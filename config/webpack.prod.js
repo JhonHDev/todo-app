@@ -1,16 +1,16 @@
 const path = require('path');
-const commonConfig = require('./webpack.common');
 const { merge } = require('webpack-merge');
+const commonConfig = require('./webpack.common');
 
-module.exports = merge( commonConfig, {
+module.exports = merge(commonConfig, {
   mode: 'production',
   devtool: 'inline-source-map',
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve( __dirname, '../dist' ),
+    path: path.resolve(__dirname, '../dist'),
   },
   optimization: {
-    runtimeChunk: "single",
+    runtimeChunk: 'single',
     splitChunks: {
       minSize: 20000,
       chunks: 'all',
@@ -18,10 +18,10 @@ module.exports = merge( commonConfig, {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
-        }
-      }
-    }
-  }
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 });

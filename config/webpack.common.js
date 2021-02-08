@@ -1,7 +1,7 @@
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -11,29 +11,27 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader'
-        ]
+        use: ['babel-loader'],
       },
       {
         test: /\.html$/i,
         loader: 'html-loader',
         options: {
           attributes: true,
-          minimize: false
-        }
+          minimize: false,
+        },
       },
       {
         test: /\.scss$/i,
-        use: [ 
+        use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: './'
-            }
+              publicPath: './',
+            },
           },
           'css-loader',
-          'sass-loader'
+          'sass-loader',
         ],
       },
       {
@@ -44,7 +42,7 @@ module.exports = {
         test: /\.(woff|ttf|eot)$/i,
         use: ['file-loader?name=assets/fonts/[name].[ext]'],
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -53,17 +51,17 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      ignoreOrder: false
+      ignoreOrder: false,
     }),
     new CopyPlugin({
       patterns: [
         {
           from: 'src/assets/images',
-          to: 'assets/images/[name].[contenthash].[ext]'
-        }
-      ]
+          to: 'assets/images/[name].[contenthash].[ext]',
+        },
+      ],
     }),
     new Webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
-  ]
-}
+  ],
+};
