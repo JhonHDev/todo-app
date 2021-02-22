@@ -4,7 +4,7 @@ const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
   mode: 'production',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, '../dist'),
