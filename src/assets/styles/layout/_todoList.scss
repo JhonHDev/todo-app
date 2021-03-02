@@ -1,0 +1,19 @@
+.todo__list {
+  .todo__data {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $Very-Light-Gray;
+    border-radius: 0 0 10px 10px;
+    font-size: 1.7rem;
+
+    .todo__length {
+      color: $Dark-Grayish-Blue;
+    }
+
+    a {
+      text-decoration: none;
+      color: $Dark-Grayish-Blue;
+    }
+  }
+}
