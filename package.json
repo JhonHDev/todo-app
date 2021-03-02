@@ -1,7 +1,7 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "todo-app",
   "version": "1.0.0",
-  "description": "Webpack configuration for Vanilla JS projects ",
+  "description": "Frontend mentor challenge number five",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",

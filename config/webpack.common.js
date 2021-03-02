@@ -53,7 +53,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack Boilerplate',
+      title: 'Todo App',
       template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
