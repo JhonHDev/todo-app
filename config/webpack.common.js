@@ -1,4 +1,3 @@
-const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -31,6 +30,7 @@ module.exports = {
             },
           },
           'css-loader',
+          'resolve-url-loader',
           'sass-loader',
         ],
       },
@@ -39,8 +39,15 @@ module.exports = {
         use: ['file-loader?name=assets/images/[name].[contenthash].[ext]'],
       },
       {
-        test: /\.(woff|ttf|eot)$/i,
-        use: ['file-loader?name=assets/fonts/[name].[ext]'],
+        test: /\.(ttf|eot|woff|woff2)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/fonts/',
+            esModule: false,
+          },
+        },
       },
     ],
   },
@@ -61,7 +68,6 @@ module.exports = {
         },
       ],
     }),
-    new Webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
   ],
 };
