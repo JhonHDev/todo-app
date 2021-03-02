@@ -6,5 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
   </head>
-  <body></body>
+  <body>
+    <main class="main">
+      <div class="todo__container wrapper">
+        <div class="todo__heading">
+          <h1>Todo</h1>
+          <figure>
+            <img src="./assets/images/icon-moon.svg" id="darkMode" />
+          </figure>
+        </div>
+
+        <form class="todo__form">
+          <input type="checkbox" class="todo__check" id="btnCheck" />
+          <input
+            type="text"
+            class="todo__input"
+            name="todoValue"
+            placeholder="Create a new todo..."
+          />
+        </form>
+
+        <div class="todo__list" id="todoList">
+          <div class="todo__item">
+            <input type="checkbox" class="todo__check completed" />
+            <p class="todo__text">Complete online Javascript course</p>
+            <img src="./assets/images/icon-cross.svg" alt="" />
+          </div>
+          <div class="todo__item">
+            <input type="checkbox" class="todo__check" />
+            <p class="todo__text">Job around the park 3x</p>
+            <img src="./assets/images/icon-cross.svg" alt="" />
+          </div>
+          <div class="todo__item">
+            <input type="checkbox" class="todo__check" />
+            <p class="todo__text">10 minutes mediation</p>
+            <img src="./assets/images/icon-cross.svg" alt="" />
+          </div>
+          <div class="todo__item">
+            <input type="checkbox" class="todo__check" />
+            <p class="todo__text">Read for 1 hour</p>
+            <img src="./assets/images/icon-cross.svg" alt="" />
+          </div>
+          <div class="todo__item">
+            <input type="checkbox" class="todo__check" />
+            <p class="todo__text">Pick up groceries</p>
+            <img src="./assets/images/icon-cross.svg" alt="" />
+          </div>
+          <div class="todo__item">
+            <input type="checkbox" class="todo__check" />
+            <p class="todo__text">Complete Todo App on Frontend Mentor</p>
+            <img src="./assets/images/icon-cross.svg" alt="" />
+          </div>
+
+          <div class="todo__data">
+            <p class="todo__length">5 items left</p>
+            <a class="todo_clear" href="#">Clear Completed</a>
+          </div>
+        </div>
+
+        <ul class="todo__options" id="todoOptions">
+          <li>
+            <a href="#">All</a>
+          </li>
+          <li>
+            <a href="#">Active</a>
+          </li>
+          <li>
+            <a href="#">Completed</a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer class="footer">Drag and drog to reoder list</footer>
+  </body>
 </html>

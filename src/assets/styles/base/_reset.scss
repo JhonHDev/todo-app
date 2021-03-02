@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  display: block;
+}
+
+body {
+  font-size: 1.8rem;
+  margin: 0;
+  position: relative;
+  background-color: rgb(230, 230, 230);
+}
+
+.wrapper {
+  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
