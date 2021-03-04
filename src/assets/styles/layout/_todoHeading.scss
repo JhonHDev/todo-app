@@ -4,12 +4,15 @@
   align-items: center;
   margin: 30px auto;
   padding: 10px;
+  position: relative;
+  z-index: 100;
 
   h1 {
     margin: 0;
     text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 2px;
+    color: $Very-Light-Gray;
   }
 
   figure {

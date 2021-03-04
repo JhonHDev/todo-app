@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
+  z-index: 100;
 
   .todo__input {
     position: relative;

@@ -1,4 +1,7 @@
 .todo__list {
+  position: relative;
+  z-index: 100;
+
   .todo__data {
     display: flex;
     align-items: center;
