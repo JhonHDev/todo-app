@@ -13,40 +13,14 @@ img {
 }
 
 body {
-  font-size: 1.8rem;
   margin: 0;
-  position: relative;
   background-color: $Very-Light-Grayish-Blue;
-
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 215px;
-    background-image: url(../../images/bg-mobile-light.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 1;
-    top: -30px;
-    left: 0;
-
-    @media screen and (min-width: 480px) {
-      background-image: url(../../images/bg-desktop-light.jpg);
-    }
-  }
-}
-
-.todo__container {
-  max-width: 500px;
-  margin: auto;
+  font-size: 1.8rem;
 }
 
 .wrapper {
-  height: auto;
+  max-width: 500px;
+  margin: auto;
   padding-left: 18px;
   padding-right: 18px;
 }

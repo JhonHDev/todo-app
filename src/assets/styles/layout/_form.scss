@@ -1,4 +1,4 @@
-.todo__form {
+.form {
   width: 100%;
   display: flex;
   align-items: center;
@@ -6,7 +6,7 @@
   position: relative;
   z-index: 100;
 
-  .todo__input {
+  &__input {
     position: relative;
     display: block;
     width: 100%;
@@ -22,7 +22,7 @@
     }
   }
 
-  .todo__check {
+  &__check {
     position: absolute;
     width: 25px;
     height: 25px;
@@ -35,25 +35,25 @@
     cursor: pointer;
     z-index: 20;
 
+    &.completed {
+      &::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 12px;
+        background-image: linear-gradient(
+          $Check-Background1,
+          $Check-Background2
+        );
+        background-image: url(../../images/icon-check.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+
     @media screen and (min-width: 480px) {
       margin-left: 24px;
     }
-  }
-
-  .todo__check.completed {
-    &::before {
-      content: '';
-      position: absolute;
-      width: 15px;
-      height: 12px;
-      background-image: url(../../images/icon-check.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-
-  .todo__check.completed {
-    background-image: linear-gradient($Check-Background1, $Check-Background2);
   }
 }

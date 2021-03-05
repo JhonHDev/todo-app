@@ -8,87 +8,108 @@
   </head>
   <body>
     <main class="main">
-      <div class="todo__container wrapper">
-        <div class="todo__heading">
-          <h1>Todo</h1>
-          <figure>
-            <img src="./assets/images/icon-moon.svg" id="darkMode" />
+      <div class="wrapper">
+        <div class="heading">
+          <h1 class="heading__title">Todo</h1>
+          <figure class="figure">
+            <img
+              src="./assets/images/icon-moon.svg"
+              class="figure__icon"
+              id="darkMode"
+            />
           </figure>
         </div>
 
-        <form class="todo__form">
-          <div class="todo__check"></div>
+        <form class="form">
+          <div class="form__check"></div>
           <input
             type="text"
-            class="todo__input"
+            class="form__input"
             name="todoValue"
             placeholder="Create a new todo..."
             autocomplete="off"
           />
         </form>
 
-        <div class="todo__list" id="todoList">
+        <div class="todo" id="todoList">
           <div class="todo__item">
             <div class="check completed">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
             </div>
+
             <p class="todo__text completed">
               Complete online Javascript course
             </p>
-            <img src="./assets/images/icon-cross.svg" alt="" />
+
+            <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
+
           <div class="todo__item">
             <div class="check">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
             </div>
+
             <p class="todo__text">Job around the park 3x</p>
-            <img src="./assets/images/icon-cross.svg" alt="" />
+
+            <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
+
           <div class="todo__item">
             <div class="check">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
             </div>
+
             <p class="todo__text">10 minutes mediation</p>
-            <img src="./assets/images/icon-cross.svg" alt="" />
+
+            <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
+
           <div class="todo__item">
             <div class="check">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
             </div>
+
             <p class="todo__text">Read for 1 hour</p>
-            <img src="./assets/images/icon-cross.svg" alt="" />
+
+            <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
+
           <div class="todo__item">
             <div class="check">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
             </div>
+
             <p class="todo__text">Pick up groceries</p>
-            <img src="./assets/images/icon-cross.svg" alt="" />
+
+            <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
+
           <div class="todo__item">
             <div class="check">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
             </div>
+
             <p class="todo__text">Complete Todo App on Frontend Mentor</p>
-            <img src="./assets/images/icon-cross.svg" alt="" />
+
+            <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
         </div>
 
         <div class="settings">
-          <div class="todo__data">
-            <p class="todo__length">5 items left</p>
-            <a class="todo_clear" href="#">Clear Completed</a>
+          <div class="data">
+            <p class="data__length">5 items left</p>
+            <a class="data__clear" href="#">Clear Completed</a>
           </div>
 
-          <ul class="todo__options" id="todoOptions">
-            <li>
-              <a href="#">All</a>
+          <ul class="options" id="todoOptions">
+            <li class="options__item">
+              <a href="#" class="options__link">All</a>
             </li>
-            <li>
-              <a href="#">Active</a>
+            <li class="options__item">
+              <a href="#" class="options__link">Active</a>
             </li>
-            <li>
-              <a href="#">Completed</a>
+            <li class="options__item">
+              <a href="#" class="options__link">Completed</a>
             </li>
           </ul>
         </div>
