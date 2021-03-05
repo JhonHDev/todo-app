@@ -1,0 +1,40 @@
+.settings {
+  .todo__data {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0 0 5px 5px;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+
+    .todo__length {
+      color: $Dark-Grayish-Blue;
+    }
+
+    a {
+      text-decoration: none;
+      color: $Dark-Grayish-Blue;
+    }
+  }
+
+  .todo__options {
+    height: 60px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        color: $Dark-Grayish-Blue;
+      }
+    }
+  }
+}

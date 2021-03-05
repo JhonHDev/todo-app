@@ -24,11 +24,36 @@
 
   .todo__check {
     position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
     margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
     z-index: 20;
 
     @media screen and (min-width: 480px) {
       margin-left: 24px;
     }
+  }
+
+  .todo__check.completed {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 12px;
+      background-image: url(../../images/icon-check.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .todo__check.completed {
+    background-image: linear-gradient($Check-Background1, $Check-Background2);
   }
 }

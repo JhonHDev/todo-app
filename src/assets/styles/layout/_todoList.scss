@@ -2,20 +2,52 @@
   position: relative;
   z-index: 100;
 
-  .todo__data {
+  .todo__item {
     display: flex;
+    width: 100%;
+    height: 60px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: $Very-Light-Gray;
-    border-radius: 0 0 5px 5px;
-    font-size: 1.7rem;
+    margin-bottom: 1px;
+    box-shadow: 1px 1px 1px $Light-Grayish-Blue;
+    cursor: pointer;
 
-    .todo__length {
-      color: $Dark-Grayish-Blue;
+    &:first-child {
+      border-radius: 5px 5px 0 0;
     }
 
-    a {
-      text-decoration: none;
+    img {
+      width: 15px;
+      cursor: pointer;
+    }
+
+    .check {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+    }
+
+    .check.completed {
+      background-image: linear-gradient($Check-Background1, $Check-Background2);
+    }
+
+    .check__icon {
+      width: 57%;
+    }
+    .todo__text {
+      width: 70%;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .todo__text.completed {
+      text-decoration: line-through;
       color: $Dark-Grayish-Blue;
     }
   }
