@@ -12,6 +12,10 @@ img {
   display: block;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   background-color: $Very-Light-Grayish-Blue;
@@ -19,7 +23,7 @@ body {
 }
 
 .wrapper {
-  max-width: 500px;
+  max-width: 530px;
   margin: auto;
   padding-left: 18px;
   padding-right: 18px;

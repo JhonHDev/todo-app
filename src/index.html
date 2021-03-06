@@ -9,7 +9,7 @@
   <body>
     <main class="main">
       <div class="wrapper">
-        <div class="heading">
+        <section class="heading">
           <h1 class="heading__title">Todo</h1>
           <figure class="figure">
             <img
@@ -18,7 +18,7 @@
               id="darkMode"
             />
           </figure>
-        </div>
+        </section>
 
         <form class="form">
           <div class="form__check"></div>
@@ -31,7 +31,7 @@
           />
         </form>
 
-        <div class="todo" id="todoList">
+        <section class="todo" id="todoList">
           <div class="todo__item">
             <div class="check completed">
               <img src="./assets/images/icon-check.svg" class="check__icon" />
@@ -93,28 +93,27 @@
 
             <img src="./assets/images/icon-cross.svg" class="todo__delete" />
           </div>
-        </div>
+        </section>
 
-        <div class="settings">
+        <section class="options">
           <div class="data">
-            <p class="data__length">5 items left</p>
-            <a class="data__clear" href="#">Clear Completed</a>
+            <p class="data__length"><span>5</span> items left</p>
           </div>
 
-          <ul class="options" id="todoOptions">
-            <li class="options__item">
-              <a href="#" class="options__link">All</a>
-            </li>
-            <li class="options__item">
-              <a href="#" class="options__link">Active</a>
-            </li>
-            <li class="options__item">
-              <a href="#" class="options__link">Completed</a>
-            </li>
-          </ul>
-        </div>
+          <div class="filtering-options" id="filteringOptions">
+            <a href="#" class="filtering-options__link">All</a>
+            <a href="#" class="filtering-options__link">Active</a>
+            <a href="#" class="filtering-options__link">Completed</a>
+          </div>
+
+          <div class="clear">
+            <a class="clear__link" href="#">Clear Completed</a>
+          </div>
+        </section>
       </div>
     </main>
-    <footer class="footer">Drag and drog to reoder list</footer>
+    <footer class="footer">
+      <p class="footer__text">Drag and drog to reoder list</p>
+    </footer>
   </body>
 </html>
