@@ -6,7 +6,7 @@
     position: absolute;
     display: block;
     width: 100%;
-    height: 215px;
+    height: 205px;
     background-image: url(../../images/bg-mobile-light.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -17,6 +17,10 @@
 
     @media screen and (min-width: 480px) {
       background-image: url(../../images/bg-desktop-light.jpg);
+    }
+
+    @media screen and (min-width: 800px) {
+      height: 230px;
     }
   }
 }

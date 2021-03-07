@@ -5,7 +5,7 @@
 $Bright-Blue: hsl(220, 98%, 61%);
 $Check-Background1: hsl(192, 100%, 67%);
 $Check-Background2: hsl(280, 87%, 65%);
-$Check-Background: linear-gradient($Check-Background1 to $Check-Background2);
+$Check-Background: linear-gradient($Check-Background1, $Check-Background2);
 //  Neutral
 
 //  Light Theme

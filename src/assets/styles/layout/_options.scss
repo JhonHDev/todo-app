@@ -12,9 +12,10 @@
   }
 
   .data {
-    background-color: white;
+    background-color: $Very-Light-Gray;
     border-radius: 0 0 0 5px;
     color: $Dark-Grayish-Blue;
+    box-shadow: 0px 0px 1px $Light-Grayish-Blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,12 +27,13 @@
   }
 
   .filtering-options {
-    background-color: white;
+    background-color: $Very-Light-Gray;
     border-radius: 5px;
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    box-shadow: 0px 0px 1px $Light-Grayish-Blue;
     grid-row: 2 / 3;
     grid-column: 1 / -1;
 
@@ -60,7 +62,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: $Very-Light-Gray;
+    box-shadow: 0px 0px 1px $Light-Grayish-Blue;
     border-radius: 0 0 5px 0;
     grid-column: 3 / 5;
 
