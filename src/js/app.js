@@ -1,4 +1,5 @@
 import createTodo from './createTodo';
+import renderTodo from './renderTodo';
 import resetForm from './resetForm';
 
 let todoList = [];
@@ -13,6 +14,7 @@ const getFormValues = (e) => {
 
   if (inputValue.length >= 4) {
     const newTodo = createTodo(inputValue, isCheckCompleted);
+    renderTodo(newTodo);
     todoList = [...todoList, newTodo];
     resetForm(form, formCheck);
   }
