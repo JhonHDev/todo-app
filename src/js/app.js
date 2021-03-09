@@ -1,15 +1,19 @@
 import createTodo from './createTodo';
 import renderTodo from './renderTodo';
 import resetForm from './resetForm';
+import todoCounter from './todoCounter';
 
 let todoList = [];
 const form = document.getElementById('form');
 const formCheck = document.getElementById('formCheck');
 const todoContainer = document.getElementById('todoContainer');
 
+todoCounter(todoList.length);
+
 const deleteTodo = (id) => {
   const todoId = Number(id);
   todoList = todoList.filter((todo) => todo.id !== todoId);
+  todoCounter(todoList.length);
 };
 
 const toggleTodoCompleted = (id) => {
@@ -61,6 +65,7 @@ const getFormValues = (e) => {
     const newTodo = createTodo(inputValue, isCheckCompleted);
     renderTodo(newTodo);
     todoList = [...todoList, newTodo];
+    todoCounter(todoList.length);
     resetForm(form, formCheck);
   }
 };
