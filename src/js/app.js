@@ -8,6 +8,19 @@ const form = document.getElementById('form');
 const formCheck = document.getElementById('formCheck');
 const todoContainer = document.getElementById('todoContainer');
 
+const saveLocalStorage = () => {
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+};
+
+const getLocalStoarge = () => {
+  if (localStorage.getItem('todoList')) {
+    todoList = JSON.parse(localStorage.getItem('todoList'));
+    todoList.map(renderTodo);
+  } else {
+    todoList = [];
+  }
+};
+
 todoCounter(todoList.length);
 
 const deleteTodo = (id) => {
@@ -44,6 +57,7 @@ const todoActions = (e) => {
   if (isCheckButton) {
     todoItemId = element.parentElement.parentElement.getAttribute('id');
     toggleTodoCompleted(todoItemId);
+    saveLocalStorage();
     element.parentElement.classList.toggle('completed');
     todoItem.querySelector('p').classList.toggle('completed');
   }
@@ -51,6 +65,7 @@ const todoActions = (e) => {
   if (isDeleteButton) {
     todoItemId = element.parentElement.getAttribute('id');
     deleteTodo(todoItemId);
+    saveLocalStorage();
     element.parentElement.remove();
   }
 };
@@ -65,6 +80,7 @@ const getFormValues = (e) => {
     const newTodo = createTodo(inputValue, isCheckCompleted);
     renderTodo(newTodo);
     todoList = [...todoList, newTodo];
+    saveLocalStorage();
     todoCounter(todoList.length);
     resetForm(form, formCheck);
   }
@@ -78,6 +94,8 @@ const runApp = () => {
   });
 
   todoContainer.addEventListener('click', todoActions);
+
+  window.addEventListener('DOMContentLoaded', getLocalStoarge);
 };
 
 export default runApp;
