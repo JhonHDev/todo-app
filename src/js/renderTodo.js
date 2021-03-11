@@ -6,7 +6,7 @@ const renderTodo = ({ id, task, completed }) => {
   const element = document.createElement('div');
 
   element.innerHTML = `
-  <div class="todo__item" id="${id}">
+  <div class="todo__item ${completed ? 'completed' : ''}" id="${id}">
 
     <div class="check ${completed ? 'completed' : ''}">
       <img src="${checkIcon}" class="check__icon" />

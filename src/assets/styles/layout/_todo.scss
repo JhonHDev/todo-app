@@ -13,6 +13,10 @@
     box-shadow: 0px 0px 1px $Light-Grayish-Blue;
     cursor: pointer;
 
+    &.hidden {
+      display: none;
+    }
+
     &:first-child {
       border-radius: 5px 5px 0 0;
     }

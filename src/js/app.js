@@ -55,6 +55,7 @@ const todoItemActions = (e) => {
     toggleTodoCompleted(todoItemId);
     saveLocalStorage();
     element.parentElement.classList.toggle('completed');
+    todoItem.classList.toggle('completed');
     todoItem.querySelector('p').classList.toggle('completed');
   }
 
