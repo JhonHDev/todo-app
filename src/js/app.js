@@ -1,7 +1,7 @@
 import createTodo from './createTodo';
 import renderTodo from './renderTodo';
 import resetForm from './resetForm';
-import todoCounter from './todoCounter';
+import { getCounter, incrementCounter, decrementCounter } from './todoCounter';
 
 let todoList = [];
 const form = document.getElementById('form');
@@ -12,7 +12,7 @@ const saveLocalStorage = () => {
   localStorage.setItem('todoList', JSON.stringify(todoList));
 };
 
-const getLocalStoarge = () => {
+const getLocalStorage = () => {
   if (localStorage.getItem('todoList')) {
     todoList = JSON.parse(localStorage.getItem('todoList'));
     todoList.map(renderTodo);
@@ -21,12 +21,9 @@ const getLocalStoarge = () => {
   }
 };
 
-todoCounter(todoList.length);
-
 const deleteTodo = (id) => {
   const todoId = Number(id);
   todoList = todoList.filter((todo) => todo.id !== todoId);
-  todoCounter(todoList.length);
 };
 
 const toggleTodoCompleted = (id) => {
@@ -66,6 +63,7 @@ const todoActions = (e) => {
     todoItemId = element.parentElement.getAttribute('id');
     deleteTodo(todoItemId);
     saveLocalStorage();
+    decrementCounter();
     element.parentElement.remove();
   }
 };
@@ -81,7 +79,7 @@ const getFormValues = (e) => {
     renderTodo(newTodo);
     todoList = [...todoList, newTodo];
     saveLocalStorage();
-    todoCounter(todoList.length);
+    incrementCounter();
     resetForm(form, formCheck);
   }
 };
@@ -95,7 +93,10 @@ const runApp = () => {
 
   todoContainer.addEventListener('click', todoActions);
 
-  window.addEventListener('DOMContentLoaded', getLocalStoarge);
+  window.addEventListener('DOMContentLoaded', () => {
+    getLocalStorage();
+    getCounter();
+  });
 };
 
 export default runApp;
