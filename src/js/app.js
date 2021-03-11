@@ -1,12 +1,11 @@
 import createTodo from './createTodo';
 import renderTodo from './renderTodo';
 import resetForm from './resetForm';
-import { getCounter, incrementCounter, decrementCounter } from './todoCounter';
+import { incrementCounter, decrementCounter } from './todoCounter';
 
 let todoList = [];
 const form = document.getElementById('form');
 const formCheck = document.getElementById('formCheck');
-const todoContainer = document.getElementById('todoContainer');
 
 const saveLocalStorage = () => {
   localStorage.setItem('todoList', JSON.stringify(todoList));
@@ -42,7 +41,7 @@ const toggleTodoCompleted = (id) => {
   });
 };
 
-const todoActions = (e) => {
+const todoItemActions = (e) => {
   const element = e.target;
   const { parentElement: todoItem } = element.parentElement;
 
@@ -84,19 +83,4 @@ const getFormValues = (e) => {
   }
 };
 
-const runApp = () => {
-  form.addEventListener('submit', getFormValues);
-
-  formCheck.addEventListener('click', (e) => {
-    e.target.classList.toggle('completed');
-  });
-
-  todoContainer.addEventListener('click', todoActions);
-
-  window.addEventListener('DOMContentLoaded', () => {
-    getLocalStorage();
-    getCounter();
-  });
-};
-
-export default runApp;
+export { getFormValues, todoItemActions, getLocalStorage };

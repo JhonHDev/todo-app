@@ -47,6 +47,19 @@
 
     &__link {
       color: $Dark-Grayish-Blue;
+      transition: color 300ms;
+
+      &:first-child {
+        color: $Bright-Blue;
+      }
+
+      &:hover {
+        color: $Very-Dark-Blue;
+      }
+
+      &.active {
+        text-decoration: underline;
+      }
 
       &:nth-child(2) {
         margin-left: -50px;
@@ -75,6 +88,11 @@
 
     &__link {
       color: $Dark-Grayish-Blue;
+      transition: color 300ms;
+
+      &:hover {
+        color: $Very-Dark-Blue;
+      }
     }
   }
 }
