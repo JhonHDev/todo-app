@@ -1,6 +1,8 @@
 import sunIcon from '../assets/images/icon-sun.svg';
 import moonIcon from '../assets/images/icon-moon.svg';
 
+import { toggleDarkMode } from './darkMode';
+
 const getDarkIcon = () => {
   const darkModeIcon = document.getElementById('darkModeIcon');
   const darkState = JSON.parse(localStorage.getItem('darkState'));
@@ -19,6 +21,7 @@ const saveDarkIcon = (state) => {
 const toggleDarkIcon = ({ target }) => {
   const currentIcon = target;
   currentIcon.classList.toggle('dark');
+  toggleDarkMode();
 
   const hasDarkMode = currentIcon.classList.contains('dark');
 

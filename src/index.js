@@ -5,6 +5,7 @@ import { getCounter } from './js/todoCounter';
 
 import todoItemsFilter from './js/todoItemsFilter';
 import { toggleDarkIcon, getDarkIcon } from './js/darkImage';
+import { getDarkMode } from './js/darkMode';
 
 const runApp = () => {
   const form = document.getElementById('form');
@@ -17,6 +18,7 @@ const runApp = () => {
     getLocalStorage();
     getCounter();
     getDarkIcon();
+    getDarkMode();
   });
 
   form.addEventListener('submit', getFormValues);

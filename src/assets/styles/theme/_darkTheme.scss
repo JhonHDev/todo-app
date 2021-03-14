@@ -1,0 +1,68 @@
+body {
+  transition: background-color 300ms;
+
+  &.dark {
+    background-color: $Very-Dark-Blue;
+
+    .main {
+      transition: background-color 300ms;
+
+      &::before {
+        background-image: url(../../images/bg-mobile-dark.jpg);
+
+        @media screen and (min-width: 480px) {
+          background-image: url(../../images/bg-desktop-dark.jpg);
+        }
+      }
+    }
+
+    .form {
+      transition: background-color 300ms;
+
+      &__input {
+        background-color: $Very-Dark-Desaturated-Blue;
+        color: $Light-Grayish-Blue;
+        transition: background-color 300ms;
+
+        &::placeholder {
+          color: $Light-Grayish-Blue;
+        }
+      }
+    }
+
+    .todo {
+      transition: background-color 300ms;
+
+      &__item {
+        background-color: $Very-Dark-Desaturated-Blue;
+      }
+
+      &__text {
+        color: $Light-Grayish-Blue;
+      }
+    }
+
+    .options {
+      .data,
+      .clear,
+      .filtering-options {
+        transition: background-color 300ms;
+        background-color: $Very-Dark-Desaturated-Blue;
+        color: $Light-Grayish-Blue;
+        box-shadow: initial;
+      }
+
+      .filtering-options {
+        &__link {
+          &:hover {
+            color: $Light-Grayish-Blue-hover;
+          }
+
+          &.selected {
+            color: $Light-Grayish-Blue;
+          }
+        }
+      }
+    }
+  }
+}
