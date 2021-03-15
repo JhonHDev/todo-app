@@ -6,6 +6,7 @@ import {
   deleteTodoCompleted,
   getLocalStorage,
 } from './js/app';
+
 import { getCounter } from './js/todoCounter';
 
 import { toggleDarkIcon, getDarkIcon } from './js/darkImage';

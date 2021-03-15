@@ -35,6 +35,13 @@ body {
 
       &__item {
         background-color: $Very-Dark-Desaturated-Blue;
+        border-bottom: 1px solid $Very-Dark-Grayish-Blue;
+
+        &.completed {
+          .todo__text {
+            color: $Very-Dark-Grayish-Blue;
+          }
+        }
       }
 
       &__text {
@@ -50,6 +57,12 @@ body {
         background-color: $Very-Dark-Desaturated-Blue;
         color: $Light-Grayish-Blue;
         box-shadow: initial;
+      }
+
+      .clear {
+        &__link:hover {
+          color: $Light-Grayish-Blue-hover;
+        }
       }
 
       .filtering-options {

@@ -1,4 +1,3 @@
-import checkIcon from '../assets/images/icon-check.svg';
 import deleteIcon from '../assets/images/icon-cross.svg';
 
 const renderTodo = ({ id, task, completed }) => {
@@ -6,15 +5,11 @@ const renderTodo = ({ id, task, completed }) => {
   const element = document.createElement('div');
 
   element.innerHTML = `
-  <div class="todo__item ${completed ? 'completed' : ''}" id="${id}">
+  <div class="todo__item ${completed ? 'completed' : ''} " id="${id}">
 
-    <div class="check ${completed ? 'completed' : ''}">
-      <img src="${checkIcon}" class="check__icon" />
-    </div>
+    <div class="check"></div>
 
-    <p class="todo__text ${completed ? 'completed' : ''}">
-      ${task}
-    </p>
+    <p class="todo__text">${task}</p>
 
     <img src="${deleteIcon}" class="todo__delete" />
     

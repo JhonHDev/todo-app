@@ -9,16 +9,40 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: $Very-Light-Gray;
-    margin-bottom: 1px;
-    box-shadow: 0px 0px 1px $Light-Grayish-Blue;
+    border-bottom: 1px solid $Very-Light-Grayish-Blue;
     cursor: pointer;
+
+    &:first-child {
+      border-radius: 5px 5px 0 0;
+    }
 
     &.hidden {
       display: none;
     }
 
-    &:first-child {
-      border-radius: 5px 5px 0 0;
+    &.completed {
+      .check {
+        position: relative;
+        background-image: $Check-Background;
+        z-index: 10;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 15px;
+          height: 12px;
+          background-image: url(../../images/icon-check.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          z-index: 1;
+        }
+      }
+
+      .todo__text {
+        text-decoration: line-through;
+        color: $Light-Grayish-Blue;
+      }
     }
   }
 
@@ -34,10 +58,6 @@
     &__icon {
       width: 65%;
     }
-
-    &.completed {
-      background-image: $Check-Background;
-    }
   }
 
   &__text {
@@ -45,11 +65,7 @@
     margin: 0;
     font-size: 1.5rem;
     color: $Very-Dark-Grayish-Blue;
-
-    &.completed {
-      text-decoration: line-through;
-      color: $Light-Grayish-Blue;
-    }
+    transition: color 300ms;
   }
 
   &__delete {

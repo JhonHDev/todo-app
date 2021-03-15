@@ -60,28 +60,26 @@ const toggleTodoCompleted = (id) => {
 
 const todoItemActions = (e) => {
   const element = e.target;
-  const { parentElement: todoItem } = element.parentElement;
+  const todoItem = element.parentElement;
 
-  const isCheckButton = element.classList.contains('check__icon');
+  const isCheckButton = element.classList.contains('check');
   const isDeleteButton = element.classList.contains('todo__delete');
 
   let todoItemId;
 
   if (isCheckButton) {
-    todoItemId = element.parentElement.parentElement.getAttribute('id');
+    todoItemId = todoItem.getAttribute('id');
     toggleTodoCompleted(todoItemId);
     saveLocalStorage();
-    element.parentElement.classList.toggle('completed');
     todoItem.classList.toggle('completed');
-    todoItem.querySelector('p').classList.toggle('completed');
   }
 
   if (isDeleteButton) {
-    todoItemId = element.parentElement.getAttribute('id');
+    todoItemId = todoItem.getAttribute('id');
     deleteTodo(todoItemId);
     saveLocalStorage();
     decrementCounter();
-    element.parentElement.remove();
+    todoItem.remove();
   }
 };
 
