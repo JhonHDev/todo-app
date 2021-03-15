@@ -2,7 +2,7 @@ import createTodo from './createTodo';
 import renderTodo from './renderTodo';
 import deleteCompleted from './deleteCompleted';
 import resetForm from './resetForm';
-import { incrementCounter, decrementCounter } from './todoCounter';
+import { incrementCounter } from './todoCounter';
 
 let todoList = [];
 const form = document.getElementById('form');
@@ -58,31 +58,6 @@ const toggleTodoCompleted = (id) => {
   });
 };
 
-const todoItemActions = (e) => {
-  const element = e.target;
-  const todoItem = element.parentElement;
-
-  const isCheckButton = element.classList.contains('check');
-  const isDeleteButton = element.classList.contains('todo__delete');
-
-  let todoItemId;
-
-  if (isCheckButton) {
-    todoItemId = todoItem.getAttribute('id');
-    toggleTodoCompleted(todoItemId);
-    saveLocalStorage();
-    todoItem.classList.toggle('completed');
-  }
-
-  if (isDeleteButton) {
-    todoItemId = todoItem.getAttribute('id');
-    deleteTodo(todoItemId);
-    saveLocalStorage();
-    decrementCounter();
-    todoItem.remove();
-  }
-};
-
 const getFormValues = (e) => {
   e.preventDefault();
 
@@ -99,4 +74,11 @@ const getFormValues = (e) => {
   }
 };
 
-export { getFormValues, todoItemActions, deleteTodoCompleted, getLocalStorage };
+export {
+  getFormValues,
+  deleteTodoCompleted,
+  deleteTodo,
+  toggleTodoCompleted,
+  getLocalStorage,
+  saveLocalStorage,
+};

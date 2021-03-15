@@ -1,8 +1,28 @@
+const filterForTextContent = (todoItem, textContent) => {
+  const isCompleted = todoItem.classList.contains('completed');
+
+  switch (textContent) {
+    case 'Active':
+      if (isCompleted) {
+        todoItem.classList.add('hidden');
+      }
+      break;
+
+    case 'Completed':
+      if (!isCompleted) {
+        todoItem.classList.add('hidden');
+      }
+      break;
+
+    default:
+      break;
+  }
+};
+
 const todoItemsFilter = (e) => {
   e.preventDefault();
 
   const filterName = e.target;
-
   const todoContainer = document.getElementById('todoContainer');
   const todoItems = Array.from(todoContainer.querySelectorAll('.todo__item'));
 
@@ -16,27 +36,12 @@ const todoItemsFilter = (e) => {
 
   todoItems.map((todoItem) => {
     todoItem.classList.remove('hidden');
-    const isCompleted = todoItem.classList.contains('completed');
 
     optionLinks.forEach((option) => option.classList.remove('selected'));
     filterName.classList.add('selected');
 
-    switch (filterName.textContent) {
-      case 'Active':
-        if (isCompleted) {
-          todoItem.classList.add('hidden');
-        }
-        break;
-
-      case 'Completed':
-        if (!isCompleted) {
-          todoItem.classList.add('hidden');
-        }
-        break;
-
-      default:
-        break;
-    }
+    const { textContent } = filterName;
+    filterForTextContent(todoItem, textContent);
 
     return todoItem;
   });

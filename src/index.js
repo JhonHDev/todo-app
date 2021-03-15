@@ -1,17 +1,11 @@
 import './assets/styles/main.scss';
 
-import {
-  getFormValues,
-  todoItemActions,
-  deleteTodoCompleted,
-  getLocalStorage,
-} from './js/app';
-
+import { getFormValues, deleteTodoCompleted, getLocalStorage } from './js/app';
 import { getCounter } from './js/todoCounter';
-
 import { toggleDarkIcon, getDarkIcon } from './js/darkImage';
 import { getDarkMode } from './js/darkMode';
 
+import todoItemActions from './js/todoItemActions';
 import todoItemsFilter from './js/todoItemsFilter';
 
 const runApp = () => {
@@ -31,9 +25,9 @@ const runApp = () => {
 
   form.addEventListener('submit', getFormValues);
 
-  formCheck.addEventListener('click', (e) => {
-    e.target.classList.toggle('completed');
-  });
+  formCheck.addEventListener('click', (e) =>
+    e.target.classList.toggle('completed')
+  );
 
   todoContainer.addEventListener('click', todoItemActions);
 
