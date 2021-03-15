@@ -1,17 +1,24 @@
 import './assets/styles/main.scss';
 
-import { getFormValues, todoItemActions, getLocalStorage } from './js/app';
+import {
+  getFormValues,
+  todoItemActions,
+  deleteTodoCompleted,
+  getLocalStorage,
+} from './js/app';
 import { getCounter } from './js/todoCounter';
 
-import todoItemsFilter from './js/todoItemsFilter';
 import { toggleDarkIcon, getDarkIcon } from './js/darkImage';
 import { getDarkMode } from './js/darkMode';
+
+import todoItemsFilter from './js/todoItemsFilter';
 
 const runApp = () => {
   const form = document.getElementById('form');
   const formCheck = document.getElementById('formCheck');
   const todoContainer = document.getElementById('todoContainer');
   const filteringOptions = document.getElementById('filteringOptions');
+  const btnClear = document.querySelector('.clear__link');
   const darkModeIcon = document.getElementById('darkModeIcon');
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -30,6 +37,8 @@ const runApp = () => {
   todoContainer.addEventListener('click', todoItemActions);
 
   filteringOptions.addEventListener('click', todoItemsFilter);
+
+  btnClear.addEventListener('click', deleteTodoCompleted);
 
   darkModeIcon.addEventListener('click', toggleDarkIcon);
 };

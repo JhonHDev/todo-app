@@ -1,5 +1,6 @@
 import createTodo from './createTodo';
 import renderTodo from './renderTodo';
+import deleteCompleted from './deleteCompleted';
 import resetForm from './resetForm';
 import { incrementCounter, decrementCounter } from './todoCounter';
 
@@ -23,6 +24,22 @@ const getLocalStorage = () => {
 const deleteTodo = (id) => {
   const todoId = Number(id);
   todoList = todoList.filter((todo) => todo.id !== todoId);
+};
+
+const deleteTodoCompleted = (e) => {
+  e.preventDefault();
+
+  todoList.forEach((todo) => {
+    const isTodoCompleted = todo.completed;
+
+    if (isTodoCompleted) {
+      const { id } = todo;
+      deleteTodo(id);
+      saveLocalStorage();
+    }
+  });
+
+  deleteCompleted();
 };
 
 const toggleTodoCompleted = (id) => {
@@ -84,4 +101,4 @@ const getFormValues = (e) => {
   }
 };
 
-export { getFormValues, todoItemActions, getLocalStorage };
+export { getFormValues, todoItemActions, deleteTodoCompleted, getLocalStorage };
