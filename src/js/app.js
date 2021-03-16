@@ -1,24 +1,24 @@
 import createTodo from './createTodo';
 import renderTodo from './renderTodo';
-import deleteCompleted from './deleteCompleted';
-import resetForm from './resetForm';
-import { incrementCounter } from './todoCounter';
+import clearTodosCompleted from './clearTodosCompleted';
+import resetFormValues from './resetFormValues';
+import { incrementCounter } from './todoListCounter';
 
 let todoList = [];
 const form = document.getElementById('form');
 const formCheck = document.getElementById('formCheck');
 
-const saveLocalStorage = () => {
-  localStorage.setItem('todoList', JSON.stringify(todoList));
-};
-
-const getLocalStorage = () => {
+const getTodoList = () => {
   if (localStorage.getItem('todoList')) {
     todoList = JSON.parse(localStorage.getItem('todoList'));
     todoList.map(renderTodo);
   } else {
     todoList = [];
   }
+};
+
+const saveTodoList = () => {
+  localStorage.setItem('todoList', JSON.stringify(todoList));
 };
 
 const deleteTodo = (id) => {
@@ -35,11 +35,11 @@ const deleteTodoCompleted = (e) => {
     if (isTodoCompleted) {
       const { id } = todo;
       deleteTodo(id);
-      saveLocalStorage();
+      saveTodoList();
     }
   });
 
-  deleteCompleted();
+  clearTodosCompleted();
 };
 
 const toggleTodoCompleted = (id) => {
@@ -68,17 +68,17 @@ const getFormValues = (e) => {
     const newTodo = createTodo(inputValue, isCheckCompleted);
     renderTodo(newTodo);
     todoList = [...todoList, newTodo];
-    saveLocalStorage();
+    saveTodoList();
     incrementCounter();
-    resetForm(form, formCheck);
+    resetFormValues(form, formCheck);
   }
 };
 
 export {
   getFormValues,
+  toggleTodoCompleted,
   deleteTodoCompleted,
   deleteTodo,
-  toggleTodoCompleted,
-  getLocalStorage,
-  saveLocalStorage,
+  saveTodoList,
+  getTodoList,
 };

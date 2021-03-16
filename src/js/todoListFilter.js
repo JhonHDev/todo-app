@@ -19,7 +19,7 @@ const filterForTextContent = (todoItem, textContent) => {
   }
 };
 
-const todoItemsFilter = (e) => {
+const todoListFilter = (e) => {
   e.preventDefault();
 
   const filterName = e.target;
@@ -47,4 +47,4 @@ const todoItemsFilter = (e) => {
   });
 };
 
-export default todoItemsFilter;
+export default todoListFilter;

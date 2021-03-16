@@ -1,6 +1,6 @@
-import { decrementCounter } from './todoCounter';
+import { decrementCounter } from './todoListCounter';
 
-const deleteCompleted = () => {
+const clearTodosCompleted = () => {
   const todoItems = Array.from(document.querySelectorAll('.todo__item'));
 
   todoItems.forEach((todo) => {
@@ -13,4 +13,4 @@ const deleteCompleted = () => {
   });
 };
 
-export default deleteCompleted;
+export default clearTodosCompleted;

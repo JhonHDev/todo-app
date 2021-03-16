@@ -1,4 +1,4 @@
-const resetForm = (form, formCheck) => {
+const resetFormValues = (form, formCheck) => {
   const isCheckCompleted = formCheck.classList.contains('completed');
 
   if (isCheckCompleted) {
@@ -8,4 +8,4 @@ const resetForm = (form, formCheck) => {
   form.reset();
 };
 
-export default resetForm;
+export default resetFormValues;

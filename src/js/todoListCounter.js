@@ -3,11 +3,11 @@ const counterContainer = document.getElementById('todoCounter');
 let counter = 0;
 counterContainer.textContent = counter;
 
-const saveCounter = () => {
+const saveCounterValue = () => {
   localStorage.setItem('counter', JSON.stringify(counter));
 };
 
-const getCounter = () => {
+const getCounterValue = () => {
   if (localStorage.getItem('counter')) {
     counter = JSON.parse(localStorage.getItem('counter'));
     counterContainer.textContent = counter;
@@ -20,13 +20,13 @@ const getCounter = () => {
 const incrementCounter = () => {
   counter += 1;
   counterContainer.textContent = counter;
-  saveCounter();
+  saveCounterValue();
 };
 
 const decrementCounter = () => {
   counter -= 1;
   counterContainer.textContent = counter;
-  saveCounter();
+  saveCounterValue();
 };
 
-export { getCounter, incrementCounter, decrementCounter };
+export { getCounterValue, incrementCounter, decrementCounter };

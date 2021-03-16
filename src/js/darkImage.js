@@ -1,9 +1,9 @@
 import sunIcon from '../assets/images/icon-sun.svg';
 import moonIcon from '../assets/images/icon-moon.svg';
 
-import { toggleDarkMode } from './darkMode';
+import { toggleDarkModeState } from './darkMode';
 
-const getDarkIcon = () => {
+const getDarkModeIconState = () => {
   const darkModeIcon = document.getElementById('darkModeIcon');
   const darkState = JSON.parse(localStorage.getItem('darkState'));
 
@@ -14,24 +14,25 @@ const getDarkIcon = () => {
   }
 };
 
-const saveDarkIcon = (state) => {
+const saveDarkModeIconState = (state) => {
   localStorage.setItem('darkState', JSON.stringify(state));
 };
 
-const toggleDarkIcon = ({ target }) => {
+const toggleDarkModeIcon = ({ target }) => {
   const currentIcon = target;
   currentIcon.classList.toggle('dark');
-  toggleDarkMode();
+
+  toggleDarkModeState();
 
   const hasDarkMode = currentIcon.classList.contains('dark');
 
   if (hasDarkMode) {
     currentIcon.src = moonIcon;
-    saveDarkIcon(hasDarkMode);
+    saveDarkModeIconState(hasDarkMode);
   } else {
     currentIcon.src = sunIcon;
-    saveDarkIcon(hasDarkMode);
+    saveDarkModeIconState(hasDarkMode);
   }
 };
 
-export { toggleDarkIcon, getDarkIcon };
+export { toggleDarkModeIcon, getDarkModeIconState };

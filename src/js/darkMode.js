@@ -1,8 +1,10 @@
 const { body } = document;
 
-const toggleDarkMode = () => body.classList.toggle('dark');
+const toggleDarkModeState = () => {
+  body.classList.toggle('dark');
+};
 
-const getDarkMode = () => {
+const getDarkModeState = () => {
   const darkState = JSON.parse(localStorage.getItem('darkState'));
 
   if (darkState) {
@@ -12,4 +14,4 @@ const getDarkMode = () => {
   }
 };
 
-export { toggleDarkMode, getDarkMode };
+export { toggleDarkModeState, getDarkModeState };

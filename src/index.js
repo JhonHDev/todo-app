@@ -1,12 +1,12 @@
 import './assets/styles/main.scss';
 
-import { getFormValues, deleteTodoCompleted, getLocalStorage } from './js/app';
-import { getCounter } from './js/todoCounter';
-import { toggleDarkIcon, getDarkIcon } from './js/darkImage';
-import { getDarkMode } from './js/darkMode';
+import { getTodoList, getFormValues, deleteTodoCompleted } from './js/app';
+import { getCounterValue } from './js/todoListCounter';
+import { getDarkModeIconState, toggleDarkModeIcon } from './js/darkImage';
+import { getDarkModeState } from './js/darkMode';
 
-import todoItemActions from './js/todoItemActions';
-import todoItemsFilter from './js/todoItemsFilter';
+import todoListActions from './js/todoListActions';
+import todoListFilter from './js/todoListFilter';
 
 const runApp = () => {
   const form = document.getElementById('form');
@@ -17,10 +17,10 @@ const runApp = () => {
   const darkModeIcon = document.getElementById('darkModeIcon');
 
   window.addEventListener('DOMContentLoaded', () => {
-    getLocalStorage();
-    getCounter();
-    getDarkIcon();
-    getDarkMode();
+    getTodoList();
+    getCounterValue();
+    getDarkModeIconState();
+    getDarkModeState();
   });
 
   form.addEventListener('submit', getFormValues);
@@ -29,13 +29,13 @@ const runApp = () => {
     e.target.classList.toggle('completed')
   );
 
-  todoContainer.addEventListener('click', todoItemActions);
+  todoContainer.addEventListener('click', todoListActions);
 
-  filteringOptions.addEventListener('click', todoItemsFilter);
+  filteringOptions.addEventListener('click', todoListFilter);
 
   btnClear.addEventListener('click', deleteTodoCompleted);
 
-  darkModeIcon.addEventListener('click', toggleDarkIcon);
+  darkModeIcon.addEventListener('click', toggleDarkModeIcon);
 };
 
 runApp();
