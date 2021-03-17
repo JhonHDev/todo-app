@@ -1,7 +1,7 @@
 const resetFormValues = (form, formCheck) => {
-  const isCheckCompleted = formCheck.classList.contains('completed');
+  const isCheckboxCompleted = formCheck.classList.contains('completed');
 
-  if (isCheckCompleted) {
+  if (isCheckboxCompleted) {
     formCheck.classList.remove('completed');
   }
 

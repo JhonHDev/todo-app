@@ -1,15 +1,15 @@
 const filterForTextContent = (todoItem, textContent) => {
-  const isCompleted = todoItem.classList.contains('completed');
+  const isTodoItemCompleted = todoItem.classList.contains('completed');
 
   switch (textContent) {
     case 'Active':
-      if (isCompleted) {
+      if (isTodoItemCompleted) {
         todoItem.classList.add('hidden');
       }
       break;
 
     case 'Completed':
-      if (!isCompleted) {
+      if (!isTodoItemCompleted) {
         todoItem.classList.add('hidden');
       }
       break;
@@ -30,7 +30,7 @@ const todoListFilter = (e) => {
     document.querySelectorAll('.filtering-options__link')
   );
 
-  if (!filterName) {
+  if (!filterName.textContent) {
     return;
   }
 

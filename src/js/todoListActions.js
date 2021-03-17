@@ -11,7 +11,7 @@ const deleteTodoItem = (e) => {
   todoItem.remove();
 };
 
-const toggleCheckTodoItem = (e) => {
+const toggleCheckbox = (e) => {
   const todoItem = e.target.parentElement;
   const todoItemId = todoItem.getAttribute('id');
 
@@ -25,7 +25,7 @@ const todoListActions = (e) => {
   const isDeleteButton = e.target.classList.contains('todo__delete');
 
   if (isCheckButton) {
-    toggleCheckTodoItem(e);
+    toggleCheckbox(e);
   } else if (isDeleteButton) {
     deleteTodoItem(e);
   }

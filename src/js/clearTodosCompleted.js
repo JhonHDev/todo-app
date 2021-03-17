@@ -3,11 +3,11 @@ import { decrementCounter } from './todoListCounter';
 const clearTodosCompleted = () => {
   const todoItems = Array.from(document.querySelectorAll('.todo__item'));
 
-  todoItems.forEach((todo) => {
-    const isTodoCompleted = todo.classList.contains('completed');
+  todoItems.forEach((todoItem) => {
+    const isTodoItemCompleted = todoItem.classList.contains('completed');
 
-    if (isTodoCompleted) {
-      todo.remove();
+    if (isTodoItemCompleted) {
+      todoItem.remove();
       decrementCounter();
     }
   });

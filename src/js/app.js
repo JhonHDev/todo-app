@@ -22,18 +22,18 @@ const saveTodoList = () => {
 };
 
 const deleteTodo = (id) => {
-  const todoId = Number(id);
-  todoList = todoList.filter((todo) => todo.id !== todoId);
+  const todoItemId = Number(id);
+  todoList = todoList.filter((todoItem) => todoItem.id !== todoItemId);
 };
 
 const deleteTodoCompleted = (e) => {
   e.preventDefault();
 
-  todoList.forEach((todo) => {
-    const isTodoCompleted = todo.completed;
+  todoList.forEach((todoItem) => {
+    const isTodoItemCompleted = todoItem.completed;
 
-    if (isTodoCompleted) {
-      const { id } = todo;
+    if (isTodoItemCompleted) {
+      const { id } = todoItem;
       deleteTodo(id);
       saveTodoList();
     }
@@ -43,10 +43,10 @@ const deleteTodoCompleted = (e) => {
 };
 
 const toggleTodoCompleted = (id) => {
-  const todoId = Number(id);
+  const todoItemId = Number(id);
 
   todoList = todoList.map((todo) => {
-    if (todo.id === todoId) {
+    if (todo.id === todoItemId) {
       const newTodo = {
         ...todo,
         completed: !todo.completed,
@@ -62,10 +62,10 @@ const getFormValues = (e) => {
   e.preventDefault();
 
   const inputValue = document.getElementById('todoInput').value;
-  const isCheckCompleted = formCheck.classList.contains('completed');
+  const isCheckboxCompleted = formCheck.classList.contains('completed');
 
-  if (inputValue.length >= 4) {
-    const newTodo = createTodo(inputValue, isCheckCompleted);
+  if (inputValue.length > 0) {
+    const newTodo = createTodo(inputValue, isCheckboxCompleted);
     renderTodo(newTodo);
     todoList = [...todoList, newTodo];
     saveTodoList();
