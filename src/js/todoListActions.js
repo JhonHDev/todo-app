@@ -1,11 +1,11 @@
-import { saveTodoList, toggleTodoCompleted, deleteTodo } from './app';
+import { saveTodoList, toggleTodoItemCompleted, deleteTodoItem } from './app';
 import { decrementCounter } from './todoListCounter';
 
-const deleteTodoItem = (e) => {
+const clearTodoItem = (e) => {
   const todoItem = e.target.parentElement;
   const todoItemId = todoItem.getAttribute('id');
 
-  deleteTodo(todoItemId);
+  deleteTodoItem(todoItemId);
   saveTodoList();
   decrementCounter();
   todoItem.remove();
@@ -15,7 +15,7 @@ const toggleCheckbox = (e) => {
   const todoItem = e.target.parentElement;
   const todoItemId = todoItem.getAttribute('id');
 
-  toggleTodoCompleted(todoItemId);
+  toggleTodoItemCompleted(todoItemId);
   saveTodoList();
   todoItem.classList.toggle('completed');
 };
@@ -27,7 +27,7 @@ const todoListActions = (e) => {
   if (isCheckButton) {
     toggleCheckbox(e);
   } else if (isDeleteButton) {
-    deleteTodoItem(e);
+    clearTodoItem(e);
   }
 };
 

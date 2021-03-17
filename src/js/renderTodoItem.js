@@ -1,6 +1,6 @@
 import deleteIcon from '../assets/images/icon-cross.svg';
 
-const renderTodo = ({ id, task, completed }) => {
+const renderTodoItem = ({ id, task, completed }) => {
   const todoContainer = document.getElementById('todoContainer');
   const element = document.createElement('div');
 
@@ -19,4 +19,4 @@ const renderTodo = ({ id, task, completed }) => {
   todoContainer.insertAdjacentElement('afterbegin', todoItem);
 };
 
-export default renderTodo;
+export default renderTodoItem;

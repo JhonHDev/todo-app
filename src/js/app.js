@@ -1,6 +1,6 @@
-import createTodo from './createTodo';
-import renderTodo from './renderTodo';
-import clearTodosCompleted from './clearTodosCompleted';
+import createTodoItem from './createTodoItem';
+import renderTodoItem from './renderTodoItem';
+import clearTodoItemsCompleted from './clearTodoItemsCompleted';
 import resetFormValues from './resetFormValues';
 import { incrementCounter } from './todoListCounter';
 
@@ -11,7 +11,7 @@ const formCheck = document.getElementById('formCheck');
 const getTodoList = () => {
   if (localStorage.getItem('todoList')) {
     todoList = JSON.parse(localStorage.getItem('todoList'));
-    todoList.map(renderTodo);
+    todoList.map(renderTodoItem);
   } else {
     todoList = [];
   }
@@ -21,12 +21,12 @@ const saveTodoList = () => {
   localStorage.setItem('todoList', JSON.stringify(todoList));
 };
 
-const deleteTodo = (id) => {
+const deleteTodoItem = (id) => {
   const todoItemId = Number(id);
   todoList = todoList.filter((todoItem) => todoItem.id !== todoItemId);
 };
 
-const deleteTodoCompleted = (e) => {
+const deleteTodoItemCompleted = (e) => {
   e.preventDefault();
 
   todoList.forEach((todoItem) => {
@@ -34,24 +34,24 @@ const deleteTodoCompleted = (e) => {
 
     if (isTodoItemCompleted) {
       const { id } = todoItem;
-      deleteTodo(id);
+      deleteTodoItem(id);
       saveTodoList();
     }
   });
 
-  clearTodosCompleted();
+  clearTodoItemsCompleted();
 };
 
-const toggleTodoCompleted = (id) => {
+const toggleTodoItemCompleted = (id) => {
   const todoItemId = Number(id);
 
   todoList = todoList.map((todo) => {
     if (todo.id === todoItemId) {
-      const newTodo = {
+      const newTodoItem = {
         ...todo,
         completed: !todo.completed,
       };
-      return newTodo;
+      return newTodoItem;
     }
 
     return todo;
@@ -65,9 +65,9 @@ const getFormValues = (e) => {
   const isCheckboxCompleted = formCheck.classList.contains('completed');
 
   if (inputValue.length > 0) {
-    const newTodo = createTodo(inputValue, isCheckboxCompleted);
-    renderTodo(newTodo);
-    todoList = [...todoList, newTodo];
+    const newTodoItem = createTodoItem(inputValue, isCheckboxCompleted);
+    renderTodoItem(newTodoItem);
+    todoList = [...todoList, newTodoItem];
     saveTodoList();
     incrementCounter();
     resetFormValues(form, formCheck);
@@ -76,9 +76,9 @@ const getFormValues = (e) => {
 
 export {
   getFormValues,
-  toggleTodoCompleted,
-  deleteTodoCompleted,
-  deleteTodo,
+  toggleTodoItemCompleted,
+  deleteTodoItemCompleted,
+  deleteTodoItem,
   saveTodoList,
   getTodoList,
 };

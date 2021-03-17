@@ -1,6 +1,6 @@
 import './assets/styles/main.scss';
 
-import { getTodoList, getFormValues, deleteTodoCompleted } from './js/app';
+import { getTodoList, getFormValues, deleteTodoItemCompleted } from './js/app';
 import { getCounterValue } from './js/todoListCounter';
 import { getDarkModeIconState, toggleDarkModeIcon } from './js/darkImage';
 import { getDarkModeState } from './js/darkMode';
@@ -33,7 +33,7 @@ const runApp = () => {
 
   filteringOptions.addEventListener('click', todoListFilter);
 
-  btnClear.addEventListener('click', deleteTodoCompleted);
+  btnClear.addEventListener('click', deleteTodoItemCompleted);
 
   darkModeIcon.addEventListener('click', toggleDarkModeIcon);
 };
