@@ -55,6 +55,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Todo App',
       template: './src/index.html',
+      favicon: './src/assets/images/favicon.png',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  <link rel="icon" href="favicon.png"><script defer src="main.b3d14d6a796e5e328a29.js"></script><link href="main.9e4ef9d1f03c929b67ff.css" rel="stylesheet"></head>
+  <body>
+    <main class="main">
+      <div class="wrapper">
+        <section class="heading">
+          <h1 class="heading__title">Todo</h1>
+          <figure class="figure">
+            <img
+              src="assets/images/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg"
+              class="figure__icon"
+              id="darkModeIcon"
+            />
+          </figure>
+        </section>
+
+        <form class="form" id="form">
+          <div class="form__check" id="formCheck"></div>
+          <input
+            type="text"
+            class="form__input"
+            name="todoValue"
+            id="todoInput"
+            placeholder="Create a new todo..."
+            autocomplete="off"
+          />
+        </form>
+
+        <section class="todo" id="todoContainer"></section>
+
+        <section class="options">
+          <div class="data">
+            <p class="data__length">
+              <span id="todoCounter"></span> items left
+            </p>
+          </div>
+
+          <div class="filtering-options" id="filteringOptions">
+            <a href="#" class="filtering-options__link selected">All</a>
+            <a href="#" class="filtering-options__link">Active</a>
+            <a href="#" class="filtering-options__link">Completed</a>
+          </div>
+
+          <div class="clear">
+            <a class="clear__link" href="#">Clear Completed</a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">Drag and drog to reoder list</p>
+    </footer>
+  </body>
+</html>

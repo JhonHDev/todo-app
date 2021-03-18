@@ -4,11 +4,31 @@ Layout challenge number five with Frontend Mentor platform, I will code the Todo
 
 ## Desktop design
 
-![](./src/assets/images/desktop-design-dark.jpg)
+![](./src/assets/images/desktop-preview.jpg)
 
-Do you want to try a layout challenge?
+## To run the project: 👇
 
-- Enter here: [Frontend Mentor](https://www.frontendmentor.io/challenges 'Click here') 👈
+1. Clone the repository
+
+```
+git clone https://github.com/JhonEsteban/Todo-App.git
+```
+
+2. Install the node modules
+
+```
+npm install
+```
+
+3. Start the dev server
+
+```
+npm start
+```
+
+### Do you want to try a layout challenge?
+
+Enter here: [Frontend Mentor](https://www.frontendmentor.io/challenges 'Click here') 👈
 
 ### My social networks 👋🏼
 
