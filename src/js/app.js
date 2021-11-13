@@ -1,84 +1,54 @@
-import createTodoItem from './createTodoItem';
-import renderTodoItem from './renderTodoItem';
-import clearTodoItemsCompleted from './clearTodoItemsCompleted';
-import resetFormValues from './resetFormValues';
-import { incrementCounter } from './todoListCounter';
+import { Counter, DarkMode, TaskFilter, TodoList } from './classes';
 
-let todoList = [];
-const form = document.getElementById('form');
-const formCheck = document.getElementById('formCheck');
+import {
+  loadApp,
+  formActions,
+  todoListActions,
+  deleteCompletedTasks,
+} from './functions';
 
-const getTodoList = () => {
-  if (localStorage.getItem('todoList')) {
-    todoList = JSON.parse(localStorage.getItem('todoList'));
-    todoList.map(renderTodoItem);
-  } else {
-    todoList = [];
-  }
+const states = {
+  todoList: new TodoList(),
+  taskFilter: new TaskFilter(),
+  counter: new Counter(),
+  darkMode: new DarkMode(),
 };
 
-const saveTodoList = () => {
-  localStorage.setItem('todoList', JSON.stringify(todoList));
-};
+const runApp = () => {
+  const $form = document.getElementById('form');
+  const $formCheck = document.getElementById('formCheck');
+  const $todoContainer = document.getElementById('todoContainer');
+  const $btnClear = document.querySelector('.clear__link');
+  const $filteringOptions = document.getElementById('filteringOptions');
+  const $darkModeIcon = document.getElementById('darkModeIcon');
 
-const deleteTodoItem = (id) => {
-  const todoItemId = Number(id);
-  todoList = todoList.filter((todoItem) => todoItem.id !== todoItemId);
-};
-
-const deleteTodoItemCompleted = (e) => {
-  e.preventDefault();
-
-  todoList.forEach((todoItem) => {
-    const isTodoItemCompleted = todoItem.completed;
-
-    if (isTodoItemCompleted) {
-      const { id } = todoItem;
-      deleteTodoItem(id);
-      saveTodoList();
-    }
+  window.addEventListener('DOMContentLoaded', () => {
+    loadApp(states);
   });
 
-  clearTodoItemsCompleted();
-};
+  $form.addEventListener('submit', (e) => {
+    formActions(e, states);
+  });
 
-const toggleTodoItemCompleted = (id) => {
-  const todoItemId = Number(id);
+  $formCheck.addEventListener('click', (e) => {
+    e.target.classList.toggle('completed');
+  });
 
-  todoList = todoList.map((todo) => {
-    if (todo.id === todoItemId) {
-      const newTodoItem = {
-        ...todo,
-        completed: !todo.completed,
-      };
-      return newTodoItem;
-    }
+  $todoContainer.addEventListener('click', (e) => {
+    todoListActions(e, states);
+  });
 
-    return todo;
+  $btnClear.addEventListener('click', (e) => {
+    deleteCompletedTasks(e, states);
+  });
+
+  $filteringOptions.addEventListener('click', (e) => {
+    states.taskFilter.getNameToFilter(e);
+  });
+
+  $darkModeIcon.addEventListener('click', (e) => {
+    states.darkMode.toggleDarkModeIcon(e);
   });
 };
 
-const getFormValues = (e) => {
-  e.preventDefault();
-
-  const inputValue = document.getElementById('todoInput').value;
-  const isCheckboxCompleted = formCheck.classList.contains('completed');
-
-  if (inputValue.length > 0) {
-    const newTodoItem = createTodoItem(inputValue, isCheckboxCompleted);
-    renderTodoItem(newTodoItem);
-    todoList = [...todoList, newTodoItem];
-    saveTodoList();
-    incrementCounter();
-    resetFormValues(form, formCheck);
-  }
-};
-
-export {
-  getFormValues,
-  toggleTodoItemCompleted,
-  deleteTodoItemCompleted,
-  deleteTodoItem,
-  saveTodoList,
-  getTodoList,
-};
+export default runApp;
